@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <title>About Us</title>
+</head>
+<body>
+
+<div class="jumbotron">
+    <h1 class="display-4">Hello, <b class="text-success">{{request.user}}</b></h1>
+  <p class="lead">We are a newly e-commerce firm with the mission to help in the quick sale of products of all kinds.
+  We are legit so to say as we assure you of a nice experience that makes you wanna come back for more.<br>
+  Try us and stay grateful for the rest of your life, no regrets.</p>
+  <hr class="my-4">
+  <p>We would appreciate if you patronise us by purchasing goods from us.</p>
+  <a class="btn btn-primary btn-sme" href="#" role="button">Learn more</a>
+</div>
+
+    {{ main|upper|wordcount }}
+<h1><em>{{request.user}}</em></h1>
+    <h2>Welcome to the About view</h2>
+
+    <p> {{ my_text }}</p>
+    <p>{{ length }}</p>
+
+    <!--{% for my_stuff in my_context %}-->
+    <!--<li>{{forloop.counter}}-{{my_stuff}}</li>-->
+    <!--{% endfor %}-->
+</body>
+    {% endblock %}
+</html>

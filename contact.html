@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <title>Contact Page</title>
+
+    <style>
+         .well{
+  		color: rgb(35 30 35);
+  		background-color: #53900f;
+  		text-align: center;
+  		padding: 0.4px;
+  		padding-top: 10px;
+  		padding-right: auto;
+
+  	}
+    </style>
+
+</head>
+<body>
+<div class="well">
+    <h4>Contact Us</h4>
+    </div>
+
+<div class="jumbotron">
+    <h1 class="display-4">Hello, <b class="text-danger">{{request.user}}</b></h1>
+  <p class="lead">Please feel free to contact us on the following if the need arises. <br> All requests
+  pertaining social deals should be addressed to the social media platforms provided below. <br>
+  For official information's the email address should be used while for other information's or complaints,
+  the mobile number should be used.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-sm" href="#" role="button">Learn more</a>
+</div>
+</body>
+    {% endblock %}
+</html>
