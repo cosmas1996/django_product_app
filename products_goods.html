@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <title>Contact Page</title>
+</head>
+<body>
+<h2>{{object.title}}</h2>
+     <b>Description:</b> {{object.description}}
+    <br>
+    <b>Price:</b> #{{object.price}}<br>
+
+
+</body>
+    {% endblock %}
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .well{
+  		color: rgb(35 30 35);
+  		background-color: #53900f;
+  		text-align: center;
+  		text-size: 30em;
+  		padding: 0.4px;
+  		padding-top: 10px;
+  		padding-right: auto;
+
+  	}
+    </style>
+</head>
+<body>
+    <div class="well">
+<div class="container">
+    <p><b> Add Product </b></p>
+    </div>
+        </div>
+<br>
+<form action="" method="post"> {% csrf_token %}
+    {{form.as_p}}
+
+    <input type="reset" value="Reset" class="btn btn-primary">
+    <input type="submit" value="Submit" class="btn btn-success">
+</form>
+
+{% if messages.info %}
+    <ul class="messages">
+        {% for messages in messages.info %}
+            <li class="{{messages.tag}}">
+                {% if messages.info %}
+                {{messages}}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+</body>
+{% endblock %}
+</html>

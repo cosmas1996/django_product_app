@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<!--{% load static %}-->
+<html lang="en">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <title>Contact Page</title>
+</head>
+<body>
+{% for obj in object %}
+
+<h2><a class="" href="/detail/goods/{{obj.id}}">{{obj.title}}</a></h2>
+
+     <!--<b>Description:</b> {{obj.description}}-->
+    <!--<br>-->
+    <!--<b>Price:</b> #{{obj.price}}<br>-->
+
+{% endfor %}
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="/detail/{{obj.title}}">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+
+</body>
+    {% endblock %}
+</html>
