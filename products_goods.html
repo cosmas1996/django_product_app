@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-{% extends 'base.html' %}
+{% load static %}
 <html lang="en">
 <head>
     {% block content %}
     <meta charset="UTF-8">
-    <title>Contact Page</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'products/bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'products/bootstrap/js/bootstrap.bundle.js' %}">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+    <title>Goods</title>
 </head>
 <body>
 <h2>{{object.title}}</h2>
      <b>Description:</b> {{object.description}}
     <br>
     <b>Price:</b> #{{object.price}}<br>
+{% if object.image %}
 
+      <a href="{{object.image.url}}">  <img src="{{object.image.url}}" width="200px" alt="image" class="img-responsive"> </a>
+{% else %}
+<p>There is no image for the product</p>
+{% endif %}
 
 </body>
     {% endblock %}
