@@ -16,8 +16,8 @@
     <title>Goods</title>
 </head>
 <body>
-<h2>{{object.title}}</h2>
-     <b>Description:</b> {{object.description}}
+<h2>{{ object.title|title }}</h2>
+     <b>Description:</b> {{ object.description|capfirst }}
     <br>
     <b>Price:</b> #{{object.price}}<br>
 {% if object.image %}

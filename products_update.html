@@ -16,7 +16,6 @@
   		padding-right: auto;
 
   	}
-
     </style>
 </head>
 <body>
@@ -25,14 +24,18 @@
     <p><b> Add Product </b></p>
     </div>
         </div>
-   {% if messages %}
-  {% for msg in messages %}
-    <div class="alert alert-info alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      {{msg.message}}
+    <div class="form-group">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>
+                <div class="alert alert-warning"> {{message}} </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
     </div>
-  {% endfor %}
-{% endif %}
 <br>
 
 <form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
@@ -42,17 +45,7 @@
     <input type="reset" value="Reset" class="btn btn-primary">
     <input type="submit" value="Submit" class="btn btn-success">
 </form>
-
     <br>
-    <script>
-    $(document).ready(function(){
-window.setTimeout(function() {
-  $(".alert").fadeTo(500, 0).slideUp(500, function(){
-      $(this).remove();
-  });
-}, 5000)};
-
-</script>
 </body>
 {% endblock %}
 </html>

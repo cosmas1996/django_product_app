@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-{% extends 'base.html' %}
 <!--{% load static %}-->
 <html lang="en">
 <head>
     {% block content %}
     <meta charset="UTF-8">
-    <title>Contact Page</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'products/bootstrap/css/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'products/bootstrap/js/bootstrap.bundle.js'%}">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+    <title>Products</title>
 </head>
 <body>
 {% for obj in object %}
 
-<h2><a class="" href="/detail/goods/{{obj.id}}">{{obj.title}}</a></h2>
+<h2><a class="" href="/detail/goods/{{obj.id}}">{{obj.title|capfirst}}</a></h2>
 
      <!--<b>Description:</b> {{obj.description}}-->
     <!--<br>-->
