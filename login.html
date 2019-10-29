@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load fontawesome_5 %}
+{% load static %}
+
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'products/bootstrap/css/bootstrap.css' %}">
+    <script href="{% static 'products/bootstrap/js/jquery/bootstrap.modal.forms.js'%}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'products/bootstrap/js/bootstrap.bundle.js'%}">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+
+<body>
+
+
+<button type="button" class="btn btn-primary " data-toggle="modal"
+ data-target="#loginModal" data-whatever="@mdo">Login</button>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login Account</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+  <form method="post">
+             {% csrf_token %}
+             <div class="form-group">
+            {{ form|crispy }}
+       <p><small> Need An Account?<a href="/signup/"> Create Account</a></small></p>
+
+                 <button class="btn btn-primary">Login</button>
+             </div>
+
+      <div>
+          {% if form.errors %}
+          <p>
+              {{ errors }}
+          </p>
+          {% endif %}
+      </div>
+
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

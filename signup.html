@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load fontawesome_5 %}
+{% load crispy_forms_tags %}
+{% load static %}
+<html lang="en">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+    <title>Create An Account</title>
+     <style>
+    .well{
+  		color: rgb(35 30 35);
+  		background-color: #53900f;
+  		text-align: center;
+  		padding: 0px;
+  		padding-top: 5px;
+  		padding-right: auto;
+  	}
+  	.mid{
+  	    margin-top: 0px;
+  	    background-color: olive;
+
+  	}
+        .bod{
+        font-weight: normal;
+        font-size: 1em;
+        background-color: rgba(0,0,0,.5);
+        margin-bottom: 100px;
+  		font-family: san serif;
+  		padding: 5px 5px;
+  		overflow-x: hidden;
+  		margin-right: 400px;
+  		margin-left: 300px;
+  		width: 600px;
+  		color: white;
+  		text-align: center;
+        position: flex;
+  	}
+    </style>
+
+</head>
+<body class="mid">
+<div class="well">
+<div>
+<h2>CREATE AN ACCOUNT</h2>
+    </div>
+    </div>
+<br>
+<!--<div class="container">-->
+<div class="bod">
+    <form method="post" action="" enctype="multipart/form-data">
+<div class="check">
+
+</div>
+         {% if messages %}
+  {% for msg in messages %}
+    <div class="alert alert-info alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      {{msg.message}}
+    </div>
+  {% endfor %}
+{% endif %}
+        <br>
+        {% csrf_token %}
+        {{ form|crispy}}
+
+    <input type="reset" value="Reset" class="btn btn-danger">
+    <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+    <!--</div>-->
+    </div>
+
+</body>
+{% endblock %}
+</html>
