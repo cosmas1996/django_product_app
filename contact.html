@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
+{% load static %}
 <html lang="en">
 <head>
     {% block content %}
@@ -30,10 +31,20 @@
   pertaining social deals should be addressed to the social media platforms provided below. <br>
   For official information's the email address should be used while for other information's or complaints,
   the mobile number should be used.</p>
+    <div class="row">
+        <div class="col-md-6">
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p><img src="{% static 'products/img/contact.png' %}" width="400px"></p>
   <a class="btn btn-primary btn-sm" href="#" role="button">Learn more</a>
+            </div>
+        <div class="col-md-6">
+            <hr class="my-4">
+            <p> Phone </p>
+            <p> Email </p>
+        </div>
+    </div>
 </div>
+
 </body>
     {% endblock %}
 </html>
