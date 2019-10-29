@@ -1,28 +1,29 @@
 from django import forms
-import re, string
-from django.core.exceptions import ValidationError
+from django.forms import ValidationError
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 
-class ProductForm(forms.Form):
-    title = forms.CharField(max_length=20, min_length=3,
-                            widget=forms.Textarea(attrs={'placeholder': 'Title of Product',
-                                                         'rows': '3', 'columns': '3'},
-                                                  )
-                            )
-    description = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Describe your product',
-                                                               'rows': '10', 'columns': '1'}
-                                                        )
-                                  )
 
-    price = forms.CharField(widget=forms.NumberInput(attrs={'placeholder': 'Price Of Product'}
-                                                     ),
-                            initial='price of goods')
+class SignupForm(UserCreationForm):
+    email = forms.EmailField(help_text='Enter a valid Email', required=True)
+    first_name = forms.CharField(required=True)
+    profile_pic = forms.ImageField(max_length=None, label='Profile Image')
 
-    image = forms.FileField(widget=forms.ClearableFileInput, max_length=None, allow_empty_file=True, required=False)
+    #
+    # def clean_email(self):
+    #     email = self.cleaned_data.get("email")
+    #     if User.objects.filter(email=email).exists():
+    #         raise forms.ValidationError('Email already exists')
 
-#
-# class AccountsForm(forms.Form):
-#     username = forms.CharField(max_length=200, min_length=4)
-#     email = forms.EmailField(widget=forms.EmailField)
-#     password = forms.PasswordInput()
-#     password1 = forms.PasswordInput()
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'first_name', 'password1', 'password2', 'profile_pic')
+
+        def save(self, commit):
+            user = super(UserCreationForm, self).save(commit=False)
+            user.email = self.cleaned_data.get("email")
+            if commit:
+                user.save()
+                return user
+
