@@ -1,24 +1,26 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import login, logout
-from Accounts.forms import SignupForm
-from Accounts.models import Users
+from Accounts.forms import UserForm, UserProfileForm
 from django.contrib import messages
 
 
 def signup(request):
-    form = SignupForm(request.POST or None, request.FILES or None)
-    if form.is_valid():
+    form = UserForm(request.POST or None, request.FILES or None)
+    image_form = UserProfileForm(request.POST or None, request.FILES or None)
+    if form.is_valid() and image_form.is_valid():
         email = form.cleaned_data.get("email")
-        form.profile_pic = form.cleaned_data.get("profile_pic")
         messages.success(request, 'Account created for ' + email)
-        form.save()
-        use = Users.objects.create(**form.cleaned_data)
-        use.save()
+        user = form.save()
+        profile_image = image_form.save(commit=False)
+        profile_image.user = user
+        profile_image.save()
+
         return redirect('signup')
     else:
-        form = SignupForm(request.POST, request.FILES)
-        return render(request, 'registration/signup.html', context={'form': form})
+        form = UserForm(request.POST or None, request.FILES or None)
+        image_form = UserProfileForm(request.POST or None, request.FILES or None)
+        return render(request, 'registration/signup.html', context={'form': form, 'image_form': image_form})
 
 
 def login(request):
@@ -34,10 +36,21 @@ def login(request):
 
         else:
             messages.info(request, 'Invalid Credentials')
-            return redirect('home')
+            return redirect('login')
 
     else:
-        return render(request, 'registration/login.html')
+        return render(request, 'registration/home.html')
+
+
+def logout(request):
+    if request.method == 'POST' or None:
+        logout(request, user)
+
+
+def profile(request):
+    context =  {}
+    return render(request, 'registration/profile.html', context)
+
 
 
 

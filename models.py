@@ -1,17 +1,20 @@
 from django.db import models
+from django.contrib.auth.forms import User
+import uuid
 
 
-class Users(models.Model):
-    username = models.CharField(max_length=200)
-    email = models.EmailField(blank=False)
-    first_name = models.CharField(max_length=200, default='name')
-    password1 = models.CharField(max_length=200)
-    password2 = models.CharField(max_length=200)
-    date_created = models.DateTimeField(auto_now_add=True)
-    profile_pic = models.ImageField(upload_to='profile_pics')
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    token_id = models.UUIDField(default=uuid.uuid4, editable=False)
+    image = models.FileField(upload_to='profile_pics', max_length=30, blank=True)
+
+
+    def __str__(self):
+        return self.user.username
 
     class Meta:
-        verbose_name_plural = 'Users'
+        verbose_name_plural = 'UsersImage'
+
 
 
 # Create your models here.
