@@ -64,6 +64,7 @@
         <br>
         {% csrf_token %}
         {{ form|crispy}}
+        {{ image_form|crispy}}
 
     <input type="reset" value="Reset" class="btn btn-danger">
     <input type="submit" value="Submit" class="btn btn-primary">

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 {% load crispy_forms_tags %}
 {% load fontawesome_5 %}
@@ -18,48 +19,52 @@
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 
 
+<style>
+    .form{
+    margin: auto;
+    width: 500px;
+    background-color: grey;
+    padding: 20px 30px 20px 30px;
+    margin-top: 50px;
+    height: 100%;
+    color: white;
+    }
+</style>
 <body>
 
 
-<button type="button" class="btn btn-primary " data-toggle="modal"
- data-target="#loginModal" data-whatever="@mdo">Login</button>
+<!--<button type="button" class="btn btn-primary " data-toggle="modal"-->
+ <!--data-target="#loginModal" data-whatever="@mdo">Login</button>-->
 
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login Account</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+<!--<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">-->
+  <!--<div class="modal-dialog" role="document">-->
+    <!--<div class="modal-content">-->
+      <!--<div class="modal-header">-->
+        <!--<h5 class="modal-title" id="loginModalLabel">Login Account</h5>-->
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+          <!--<span aria-hidden="true">&times;</span>-->
+        <!--</button>-->
+      <!--</div>-->
+      <!--<div class="modal-body">-->
 
-  <form method="post">
+  <form method="post" class="form">
              {% csrf_token %}
              <div class="form-group">
             {{ form|crispy }}
-       <p><small> Need An Account?<a href="/signup/"> Create Account</a></small></p>
+
+       <p><small> Need An Account?<a href="/signup/" class="text-success"> Create Account</a></small></p>
 
                  <button class="btn btn-primary">Login</button>
              </div>
 
-      <div>
-          {% if form.errors %}
-          <p>
-              {{ errors }}
-          </p>
-          {% endif %}
-      </div>
-
         </form>
 
 
-      </div>
+      <!--</div>-->
 
-    </div>
-  </div>
-</div>
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 
 
 </body>
