@@ -5,45 +5,124 @@
 <head>
     {% block content %}
     <meta charset="UTF-8">
-    <title>Contact Page</title>
-
-    <style>
-         .well{
-  		color: rgb(35 30 35);
-  		background-color: #53900f;
-  		text-align: center;
-  		padding: 0.4px;
-  		padding-top: 10px;
-  		padding-right: auto;
-
-  	}
-    </style>
+    <link type="text/css" rel="stylesheet" href="{% static 'products/contact.css' %}">
+    <title>Contact Us</title>
 
 </head>
 <body>
-<div class="well">
-    <h4>Contact Us</h4>
+
+<header class="navbar-fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/signup">Sign Up<span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+               <a href="/login" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/products" tabindex="-1" aria-disabled="true">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/create" tabindex="-1" aria-disabled="true">Add New Products</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/contact">Contact<span class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+    </header>
+
+
+    <h2 class="head2">Contact Us</h2>
+    <hr>
+
+    <div class="row">
+          <div class="col-md-6">
+              <div id="left">
+            <form class="form-inline">
+                {% csrf_token %}
+                <div id="int">
+                <input type="text" size="50" name="name" placeholder="* Name" aria-hidden="true" class="form-control"><br><br>
+                <input type="text" size="50" name="phone" placeholder="* Phone" aria-hidden="true" class="form-control"><br><br>
+                <input type="email" size="50" name="email" placeholder="* Email" aria-hidden="true" class="form-control"><br><br>
+                  <textarea rows="12" cols="51" placeholder="* Message" class="form-control"></textarea>
+                <br><br>
+
+
+                <button type="submit" class="btn btn-success btn-block">Send</button>
+                     </div>
+
+            </form>
+            </div>
+        </div>
+
+            <div class="col-md-6">
+
+                 <div class="fonts">
+               <div>
+                   <span id="fa">
+                   <i class="fa fa-address-book fa-2x"></i>
+                       </span>
+                   <label><small>5, Bush Street Maryland, Lagos, Nigeria</small></label>
+                   <br><br>
+                    <span id="fa">
+                   <i class="fa fa-clock fa-2x"></i>
+                       </span>
+                   <label><small><b class="text-success">Opening Hours</b><br> 8:00am - 5:00pm</small></label>
+                   <br><br>
+                   <span id="fa">
+                   <i class="fa fa-mobile-alt fa-2x"></i>
+                       </span>
+                   <label><small>+2348174518987   +2349031658359</small></label>
+                   <br><br>
+                      <span id="fa">
+                   <i class="fa fa-envelope fa-2x"></i>
+                       </span>
+                   <label><small>cosmas@trusoftng.com</small></label>
+                   <br><br>
+                      <span id="fa">
+                 <i class="fab fa-facebook-messenger fa-2x"></i>
+                       </span>
+                   <label><a  href="https://www.facebook.com/cosmos.anayo.52">Facebook</a></label>
+                   <br><br>
+                      <span id="fa">
+                 <i class="fab fa-whatsapp fa-2x"></i>
+                       </span>
+                   <label><small>+2348174518987</small></label>
+                   <br><br>
+               </div>
+                   </div>
+                   <!--<img src="{% static 'products/img/contact.png' %}" width="400px" height="450px;">-->
+                    <iframe
+   width="300"
+   height="250"
+   frameborder="0"
+   style="border:0"
+   src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBE9_Dfm-BciWbtXfdv4BjEW2YtTf4Rs10
+   &center=-33.8569,151.2152&zoom=18">
+   </iframe>
+
+
+            </div>
     </div>
 
-<div class="jumbotron">
-    <h1 class="display-4">Hello, <b class="text-danger">{{request.user}}</b></h1>
-  <p class="lead">Please feel free to contact us on the following if the need arises. <br> All requests
-  pertaining social deals should be addressed to the social media platforms provided below. <br>
-  For official information's the email address should be used while for other information's or complaints,
-  the mobile number should be used.</p>
-    <div class="row">
-        <div class="col-md-6">
-  <hr class="my-4">
-  <p><img src="{% static 'products/img/contact.png' %}" width="400px"></p>
-  <a class="btn btn-primary btn-sm" href="#" role="button">Learn more</a>
-            </div>
-        <div class="col-md-6">
-            <hr class="my-4">
-            <p> Phone </p>
-            <p> Email </p>
-        </div>
-    </div>
-</div>
+    <br>
+    <br>
+
 
 </body>
     {% endblock %}

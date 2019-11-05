@@ -1,33 +1,267 @@
 <!DOCTYPE html>
-{% extends 'base.html' %}
+{% load static %}
 <html lang="en">
 <head>
-    {% block content %}
+
     <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="{% static 'products/bootstrap/css/bootstrap.css' %}">
     <title>About Us</title>
+
+    <style>
+
+        footer {
+  background: #223;
+  color: #aaa;
+  padding-top: 10px;
+}
+
+footer a {
+  color: #aaa;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+footer h3 {
+ color: #0894d1;
+  letter-spacing: 1px;
+  margin: 30px 0 20px;
+}
+
+footer .three-column {
+ overflow: hidden;
+}
+
+footer .three-column li{
+ width: 33.3333%;
+  float: left;
+  padding: 5px 0;
+}
+
+footer .socila-list {
+  overflow: hidden;
+  margin: 20px 0 10px;
+}
+
+footer .socila-list li {
+  float: left;
+  margin-right: 3px;
+  opacity: 0.7;
+  overflow: hidden;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+footer .socila-list li:hover {
+  opacity: 1;
+}
+
+footer .img-thumbnail {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid #444;
+  margin-bottom: 5px;
+}
+
+footer .copyright {
+  padding: 15px 0;
+  background: #333;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+footer .copyright span {
+  color: #0894d1;
+}
+
+    </style>
+
+
 </head>
 <body>
 
-<div class="jumbotron">
-    <h1 class="display-4">Hello, <b class="text-success">{{request.user}}</b></h1>
-  <p class="lead">We are a newly e-commerce firm with the mission to help in the quick sale of products of all kinds.
-  We are legit so to say as we assure you of a nice experience that makes you wanna come back for more.<br>
-  Try us and stay grateful for the rest of your life, no regrets.</p>
-  <hr class="my-4">
-  <p>We would appreciate if you patronise us by purchasing goods from us.</p>
-  <a class="btn btn-primary btn-sme" href="#" role="button">Learn more</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/signup">Sign Up<span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+               <a href="/login" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/products" tabindex="-1" aria-disabled="true">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/create" tabindex="-1" aria-disabled="true">Add New Products</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/contact">Contact<span class="sr-only">(current)</span></a>
+            </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<br>
+
+<div class="row">
+     <div class="col-md-6">
+        <img src="{% static 'products/img/about.jpg' %}">
+
+    </div>
+
+     <div class="col-md-6">
+        <h3 class="text-center">
+            Who we are
+        </h3>
+         <hr>
+
+    </div>
+
 </div>
+<br>
+<br>
 
-    {{ main|upper|wordcount }}
-<h1><em>{{request.user}}</em></h1>
-    <h2>Welcome to the About view</h2>
+  <!-- Footer -->
+<footer class="page-footer font-small mdb-color lighten-3 pt-4" id="foot">
 
-    <p> {{ my_text }}</p>
-    <p>{{ length }}</p>
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
 
-    <!--{% for my_stuff in my_context %}-->
-    <!--<li>{{forloop.counter}}-{{my_stuff}}</li>-->
-    <!--{% endfor %}-->
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Contents</h5>
+        <p>Who And What We Do And Are.</p>
+        <p>You get to know we are cool when you rappon with us for a little while.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mb-4">About</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <a href="https://www.github.com/cosmas1996">PROJECTS</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="/about">ABOUT US</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="/contact">Contact Us</a>
+            </p>
+          </li>
+          <li>
+            <p>
+              <a href="/">Home</a>
+            </p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+        <!-- Contact details -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Contact</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <i class="fas fa-home mr-3"></i>Lagos, Nigeria</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> onyekwuocosmas@gmail.com</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-phone mr-3"></i> +2348174518987</p>
+          </li>
+          <li>
+            <p>
+              <i class="fas fa-print mr-3"></i> +2349031658359</p>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
+
+        <!-- Social buttons -->
+        <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/cosmos.anayo.52" type="button" class="btn-floating btn-fb">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <!-- Twitter -->
+        <a type="button" class="btn-floating btn-tw">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <!-- Google +-->
+        <a type="button" class="btn-floating btn-gplus">
+          <i class="fab fa-google-plus-g"></i>
+        </a>
+        <!-- Dribbble -->
+        <a type="button" class="btn-floating btn-dribbble">
+          <i class="fab fa-dribbble"></i>
+        </a>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="/"> Sellit.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+
+
 </body>
-    {% endblock %}
+
 </html>
