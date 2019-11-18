@@ -1,10 +1,87 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+      <link type="text/css" rel="stylesheet" href="{% static 'products/bootstrap/css/bootstrap.css' %}">
     <title>Profile</title>
 </head>
 <body>
+{% if user.is_authenticated %}
+<p>
+    <h2>MY PROFILE</h2>
+<hr>
+
+<div class="row">
+    <div class="col-lg-3 offset-lg-1 col-md-3 offset-md-1 col-sm-3 offset-sm-1">
+        <div class="card" style="width: 18rem;">
+           <a href="{{user.userprofile.image.url}}">
+              <img src="{{user.userprofile.image.url}}" height="50%" width="100%">
+          </a>
+            <div class="card-body">
+                <h6 class="card-title">My Token_id</h6>
+                <p class="card-text"><b class="text-primary">{{user.userprofile.token_id}}</b></p>
+
+            </div>
+        </div>
+    </div>
+
+ <div class="col-md-4 col-lg-4 col-sm-4 " style="padding-left: 40px;">
+          <div class="card" style="width: 18rem;">
+           <h4 style="padding-top: 20px;" class="container text-info">Change Password</h4>
+            <div class="card-body">
+                <p> To change your current password, follow the link below</p>
+                <a class="btn btn-success" href="/password_change">Change My Password</a>
+
+            </div>
+
+    </div>
+
+       <br>
+
+          <div class="card" style="width: 18rem;">
+           <h4 style="padding-top: 20px;" class="container text-info">View Your Products</h4>
+            <div class="card-body">
+                <p> Please follow the link below to view your products</p>
+                <a class="btn btn-success" href="{% url 'profile_change' %}">My Products</a>
+
+            </div>
+
+    </div>
+
+    </div>
+
+    <div class="col-md-4 col-lg-4 col-sm-4" style="padding-left: 40px;">
+          <div class="card" style="width: 18rem;">
+           <h4 style="padding-top: 20px;" class="container text-info">Edit Your Profile</h4>
+            <div class="card-body">
+                <p> Please follow the link below to change/edit your profile details</p>
+                <a class="btn btn-success" href="{% url 'all_images' %}">View All Your Images</a>
+
+            </div>
+
+    </div>
+        <br>
+
+          <div class="card" style="width: 18rem;">
+           <h4 style="padding-top: 20px;" class="container text-info">Edit Your Profile</h4>
+            <div class="card-body">
+                <p> Please follow the link below to change/edit your profile details</p>
+                <a class="btn btn-success" href="{% url 'image_upload' %}">Edit Profile</a>
+
+            </div>
+
+    </div>
+
+    </div>
+
+</div>
+
+
+{% else %}
+<p>You can't access the page now! Login</p>
+
+{% endif %}
 
 </body>
 </html>

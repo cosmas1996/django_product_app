@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% for pics in all_pics.image_set.all %}
+<img src="{{ MEDIA_URL }}{{all_pics.image.url}}" alt="My_pics">
+
+{% endfor %}
+
+
+</body>
+</html>

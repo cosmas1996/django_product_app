@@ -11,22 +11,10 @@
     <title>{{ request.user }}</title>
 
 </head>
-<body style="background-color: #5CDB95;">
+<body style="background-color: #5CDB95;" onload="time">
   {% if user.is_authenticated %}
 
-  {% if user.userprofile.image %}
-
-  <div class="container">
-  <img src="{{user.userprofile.image.url}}" width="100px" height="auto" class="img-rounded">
-</div>
-
-  {% else %}
-  <h4>No Image</h4>
-
-  {% endif %}
-
   {% block content %}
-
 
 
   <nav class="navbar navbar-expand-lg navbar-light  bg-light">
@@ -47,7 +35,7 @@
         </ul>
 
         <form class="form-inline my-1 my-lg-0">
-            <button class="btn btn-outline-success my-1 my-sm-0" type="submit">
+            <button class="btn btn-outline-danger my-1 my-sm-0" type="submit">
                  <a class="nav-link" href="{% url 'logout' %}">Logout</a></button>
         </form>
     </div>
@@ -60,6 +48,28 @@
     <a href="/login/"> Login Here </a>
   </p>
   {% endif %}
+
+
+<script>
+
+    function time(){
+    var myDate = new Date();
+    var myHour = myDate.getHours();
+    var time;
+
+    if (myHour>12 && myHour<=17){
+    time = 'Afternoon';
+    }
+    else if (myHour<12 && myHour<=23){
+       time = 'Morning';
+    }
+    else
+    time = 'Evening';
+       alert('Good ' + time + ' dear' );
+    }
+
+   time();
+</script>
 
 </body>
 </html>

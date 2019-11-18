@@ -20,22 +20,21 @@
   	.mid{
   	    margin-top: 0px;
   	    background-color: olive;
+  	    width: 100%;
 
   	}
-        .bod{
+        .center_div{
         font-weight: normal;
         font-size: 1em;
         background-color: rgba(0,0,0,.5);
-        margin-bottom: 100px;
   		font-family: san serif;
-  		padding: 5px 5px;
-  		overflow-x: hidden;
-  		margin-right: 400px;
-  		margin-left: 300px;
-  		width: 600px;
   		color: white;
+  		width: 50%;
+  		margin: 0 auto;
   		text-align: center;
-        position: flex;
+  		margin-bottom: 60px;
+  		padding-bottom: 20px;
+
   	}
     </style>
 
@@ -48,7 +47,7 @@
     </div>
 <br>
 <!--<div class="container">-->
-<div class="bod">
+<div class="container center_div">
     <form method="post" action="" enctype="multipart/form-data">
 <div class="check">
 
@@ -65,6 +64,8 @@
         {% csrf_token %}
         {{ form|crispy}}
         {{ image_form|crispy}}
+
+        <p>Already have an account? <a href="/login">Login</a></p>
 
     <input type="reset" value="Reset" class="btn btn-danger">
     <input type="submit" value="Submit" class="btn btn-primary">

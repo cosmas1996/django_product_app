@@ -22,7 +22,7 @@
 <style>
     .form{
     margin: auto;
-    width: 500px;
+    width: 400px;
     background-color: grey;
     padding: 20px 30px 20px 30px;
     margin-top: 50px;
@@ -32,40 +32,18 @@
 </style>
 <body>
 
-
-<!--<button type="button" class="btn btn-primary " data-toggle="modal"-->
- <!--data-target="#loginModal" data-whatever="@mdo">Login</button>-->
-
-<!--<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">-->
-  <!--<div class="modal-dialog" role="document">-->
-    <!--<div class="modal-content">-->
-      <!--<div class="modal-header">-->
-        <!--<h5 class="modal-title" id="loginModalLabel">Login Account</h5>-->
-        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-          <!--<span aria-hidden="true">&times;</span>-->
-        <!--</button>-->
-      <!--</div>-->
-      <!--<div class="modal-body">-->
-
-  <form method="post" class="form">
+  <form method="post" class="form" autocomplete="off">
              {% csrf_token %}
              <div class="form-group">
             {{ form|crispy }}
 
        <p><small> Need An Account?<a href="/signup/" class="text-success"> Create Account</a></small></p>
+                 <p><small>Forgot Password? <a href="/password_reset">Reset Here</a></small></p>
 
-                 <button class="btn btn-primary">Login</button>
+                 <button class="btn btn-info btn-block">Login</button>
              </div>
 
         </form>
-
-
-      <!--</div>-->
-
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
-
 
 </body>
 </html>
