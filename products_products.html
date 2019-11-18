@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--{% load static %}-->
+<html lang="en">
+<head>
+    {% block content %}
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'products/bootstrap/css/bootstrap.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'products/bootstrap/js/bootstrap.bundle.js'%}">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+    <title>Products</title>
+</head>
+<body>
+
+{% if user.is_authenticated %}
+
+<header style="padding-bottom: 20px;">
+    <a href="{% url 'home' %}">
+        <button type="button" class="btn btn-info">Home</button>
+    </a>
+</header>
+
+{% for obj in object %}
+
+<table class="table table-hover">
+
+    <tr>
+          <td class="table-success">
+            <h2><a style="text-decoration: none;" href="/detail/goods/{{obj.id}}">{{obj.title.capitalize}}</a></h2>
+        </td>
+           <td class="table-success">
+<a href="/products_delete/{{obj.id}}">
+    <button type="submit" class="btn btn-danger">Delete {{obj.title.capitalize|center:"10"}}</button>
+
+</a>
+
+        </td>
+  <td class="table-success">
+    <a href="/products_update/{{obj.id}}">
+    <button type="submit" class="btn btn-info">Edit {{obj.title.capitalize|center:"10"}}</button>
+</a>
+  </td>
+    </tr>
+
+</table>
+
+{% endfor %}
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+
+{% else %}
+
+{% for obj in object %}
+
+<h2 class="container"><a style="text-decoration: none;" href="/detail/goods/{{obj.id}}">{{obj.title.capitalize}}</a></h2>
+<p class="container"> Uploaded - <small>{{obj.whenpublished}}</small></p>
+
+
+{% endfor %}
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="/detail/{{obj.title}}">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+
+
+{% endif %}
+
+</body>
+    {% endblock %}
+</html>

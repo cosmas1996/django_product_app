@@ -1,51 +1,60 @@
 <!DOCTYPE html>
-{% extends 'base.html' %}
+{% include 'nav.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 <html lang="en">
 <head>
     {% block content %}
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'products/bootstrap/css/bootstrap.css' %}">
+    <title>Edit Product</title>
     <style>
-        .well{
-  		color: rgb(35 30 35);
-  		background-color: #53900f;
-  		text-align: center;
-  		text-size: 30em;
-  		padding: 0.4px;
-  		padding-top: 10px;
-  		padding-right: auto;
+       .ori{
+        width: 100%;
+        text-align: center;
+        padding-top: 40px;
+       }
 
-  	}
     </style>
 </head>
 <body>
-    <div class="well">
-<div class="container">
-    <p><b> Add Product </b></p>
-    </div>
-        </div>
-    <div class="form-group">
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li>
-                <div class="alert alert-warning"> {{message}} </div>
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
 
+<div class="ori">
+    <h3><b class="text-primary"> Update Product </b></h3>
+</div>
+    {% if user.is_authenticated %}
+
+   {% if messages %}
+  {% for msg in messages %}
+    <div class="alert alert-info alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      {{msg.message}}
     </div>
+  {% endfor %}
+{% endif %}
 <br>
+    <div style="margin: 0 auto; top: 0px; width: 500px; padding: 15px 15px 15px 15px; background-color: grey;">
 
 <form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
-    {{form.as_p}}
+    {{form|crispy}}
 
 
     <input type="reset" value="Reset" class="btn btn-primary">
     <input type="submit" value="Submit" class="btn btn-success">
 </form>
+        </div>
     <br>
+    <br>
+
+    {% else %}
+    <h4>
+        Please login <br>
+        <a href="/login" class="btn btn-warning">Login</a>
+    </h4>
+
+    <br>
+    {% endif %}
+
 </body>
 {% endblock %}
 </html>

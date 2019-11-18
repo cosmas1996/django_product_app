@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 <html lang="en">
 <head>
     {% block content %}
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link type="text/css" rel="stylesheet" href="{% static 'products/bootstrap/css/bootstrap.css' %}">
     <title>Title</title>
     <style>
-        .well{
-  		color: rgb(35 30 35);
-  		background-color: #53900f;
-  		text-align: center;
-  		text-size: 30em;
-  		padding: 0.4px;
-  		padding-top: 10px;
-  		padding-right: auto;
+       h3, p.n-h6 {
+        font-family:'nunito sans', sans-serif;
+        font-size:18px;
+        margin: 0 auto; top: 0px; width: 500px; padding: 15px 15px 15px 15px;
 
   	}
 
     </style>
 </head>
 <body>
-    <div class="well">
-<div class="container">
-    <p><b> Add Product </b></p>
-    </div>
-        </div>
+    <div class="container">
+    <h3 style="font-size: 30px;"><b class="text-info"> Add Product </b></h3>
+        <br>
+
+    {% if user.is_authenticated %}
+
    {% if messages %}
   {% for msg in messages %}
     <div class="alert alert-info alert-dismissable">
@@ -34,25 +36,29 @@
   {% endfor %}
 {% endif %}
 <br>
+    <div style="margin: 0 auto; top: 0px; width: 500px; padding: 15px 15px 15px 15px; background-color: grey;">
 
 <form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
-    {{form.as_p}}
+    {{form|crispy}}
 
 
     <input type="reset" value="Reset" class="btn btn-primary">
     <input type="submit" value="Submit" class="btn btn-success">
 </form>
+        </div>
+    <br>
+    <br>
+
+    {% else %}
+    <p class="n-h6">
+        You must login before adding any product<br>
+        <a href="/login">Login Account</a> Or <a href="/signup">Create An Account</a>
+    </p>
 
     <br>
-    <script>
-    $(document).ready(function(){
-window.setTimeout(function() {
-  $(".alert").fadeTo(500, 0).slideUp(500, function(){
-      $(this).remove();
-  });
-}, 5000)};
+    {% endif %}
+         </div>
 
-</script>
 </body>
 {% endblock %}
 </html>
