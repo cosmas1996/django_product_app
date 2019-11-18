@@ -5,17 +5,42 @@
 <head>
     {% block content %}
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="{% static 'products/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'products/contact.css' %}">
     <title>Contact Us</title>
+
+    <style>
+        #left{
+            background-color: grey;
+            padding: 5px 5px 5px 5px;
+            margin-left: 20px;
+            width: 70%;
+            border-radius: 10px;
+        }
+
+        #int{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            align-items: center;
+            text-align: center;
+            margin: auto;
+        }
+
+        .fa{
+            color: red;
+        }
+    </style>
 
 </head>
 <body>
 
-<header class="navbar-fixed-top">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+
             <li class="nav-item active">
                 <a class="nav-link" href="/signup">Sign Up<span class="sr-only">(current)</span></a>
             </li>
@@ -27,14 +52,16 @@
                 <a class="nav-link" href="/about">About</a>
             </li>
 
+             <li class="nav-item active">
+                <a class="nav-link" href="/contact">Contact Us<span class="sr-only">(current)</span></a>
+            </li>
+
+
             <li class="nav-item">
                 <a class="nav-link" href="/products" tabindex="-1" aria-disabled="true">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/create" tabindex="-1" aria-disabled="true">Add New Products</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/contact">Contact<span class="sr-only">(current)</span></a>
             </li>
 
         </ul>
@@ -44,22 +71,22 @@
         </form>
     </div>
 </nav>
-    </header>
 
 
-    <h2 class="head2">Contact Us</h2>
-    <hr>
 
-    <div class="row">
-          <div class="col-md-6">
+<h2 style="padding-top: 10px;" class="h2 container"><em>Contact Us</em></h2>
+    <hr style="border-top: 5px solid green; width:12%; margin-left: 100px; padding-top: 2px;" >
+
+    <div class="row clearfix">
+          <div class="col-md-6 col-sm-6 col-lg-6">
               <div id="left">
             <form class="form-inline">
                 {% csrf_token %}
                 <div id="int">
-                <input type="text" size="50" name="name" placeholder="* Name" aria-hidden="true" class="form-control"><br><br>
-                <input type="text" size="50" name="phone" placeholder="* Phone" aria-hidden="true" class="form-control"><br><br>
-                <input type="email" size="50" name="email" placeholder="* Email" aria-hidden="true" class="form-control"><br><br>
-                  <textarea rows="12" cols="51" placeholder="* Message" class="form-control"></textarea>
+                <input type="text" size="45" name="name" placeholder="* Name" aria-hidden="true" class="form-control"><br><br>
+                <input type="text" size="45" name="phone" placeholder="* Phone" aria-hidden="true" class="form-control"><br><br>
+                <input type="email" size="45" name="email" placeholder="* Email" aria-hidden="true" class="form-control"><br><br>
+                  <textarea rows="10" cols="46" placeholder="* Message" class="form-control"></textarea>
                 <br><br>
 
 
@@ -70,9 +97,9 @@
             </div>
         </div>
 
-            <div class="col-md-6">
+            <div class="jumbotron col-md-6 col-sm-6 col-lg-6">
 
-                 <div class="fonts">
+
                <div>
                    <span id="fa">
                    <i class="fa fa-address-book fa-2x"></i>
@@ -104,17 +131,16 @@
                        </span>
                    <label><small>+2348174518987</small></label>
                    <br><br>
-               </div>
                    </div>
-                   <!--<img src="{% static 'products/img/contact.png' %}" width="400px" height="450px;">-->
-                    <iframe
-   width="300"
-   height="250"
-   frameborder="0"
-   style="border:0"
-   src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBE9_Dfm-BciWbtXfdv4BjEW2YtTf4Rs10
-   &center=-33.8569,151.2152&zoom=18">
-   </iframe>
+<!--<div class="clearfix"></div>-->
+                    <!--<iframe-->
+   <!--width="300"-->
+   <!--height="250"-->
+   <!--frameborder="0"-->
+   <!--style="border:0"-->
+   <!--src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBE9_Dfm-BciWbtXfdv4BjEW2YtTf4Rs10-->
+   <!--&center=-33.8569,151.2152&zoom=18">-->
+   <!--</iframe>-->
 
 
             </div>

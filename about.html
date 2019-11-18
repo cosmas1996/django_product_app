@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load fontawesome_5%}
 <html lang="en">
 <head>
 
@@ -87,6 +88,10 @@ footer .copyright span {
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+
             <li class="nav-item active">
                 <a class="nav-link" href="/signup">Sign Up<span class="sr-only">(current)</span></a>
             </li>
@@ -120,18 +125,18 @@ footer .copyright span {
 <br>
 
 <div class="row">
-     <div class="col-md-6" style="left: 30px;">
+     <div class="col-md-6 col-sm-6 col-lg-6" style="left: 30px;">
         <img src="{% static 'products/img/about.jpg' %}">
 
     </div>
 
-     <div class="col-md-6" style="left: 30px;">
+     <div class="col-md-6 col-sm-6 col-lg-6" style="left: 30px;">
         <h3 class="text-success">
             Who we are
         </h3>
          <hr style="margin-left: 0px; border-top: 4px solid red; width: 25%; margin-top: 0px;">
             <p>
-                <b>Sellit</b> is an indigenous website developed by .... with the aim of transforming and <br>
+                <b>Sellit</b> is an indigenous website developed by .... with the aim of transforming and
                 making the delivery of goods and services easy and convenient for the masses at large.
             </p>
 
@@ -144,18 +149,19 @@ footer .copyright span {
 </div>
 
 <div class="row">
-    <div class="col-md-6" style="left: 30px;">
+    <div class="col-md-6 col-sm-6 col-lg-6" style="left: 30px;">
         <h3 class="text-success">Our Mission</h3>
         <p>
-            Our primary aim is to provide a unique medium between persons and organisations
+            Our primary aim is to provide a unique medium between persons and organisations for the easy flow of goods and services
+            across the face of the nation and the world at large.
         </p>
 
     </div>
 
-     <div class="col-md-6" style="left: 30px;">
+     <div class="col-md-6 col-sm-6 col-lg-6" style="left: 30px;">
         <h3 class="text-success">Our Vision</h3>
         <p>
-            Our primary aim is to provide a unique medium between persons and organisations
+            Our primary vision is to foster a better relationship between buyers and sellers in the nation at large.
         </p>
 
     </div>
@@ -165,21 +171,16 @@ footer .copyright span {
 
     <h3 class="text-center text-success">Our Team</h3>
 <div class="row">
-    <div class="col-md-4" style="left: 30px;">
-        <i class="glyphicon glyphicon-user"></i>
-        <p>Mr Jude Emefesi</p>
+     <div class="col-md-4 col-sm-4 col-lg-4 offset-sm-1" style="background-color:white; padding:10px 10px 10px 10px;">
+        <img  class="img-responsive" src="{% static 'products/img/cossy.jpg' %}" width="30%">
+          <h5>Dominic Amadi</h5>
+         <p>He is an optimistic young fellow with so much interest in Web development</p>
 
     </div>
 
-     <div class="col-md-4" style="left: 30px;">
-        <i class="glyphicon glyphicon-user"></i>
-        <p>Mr Jude Emefesi</p>
-
-    </div>
-
-     <div class="col-md-4" style="left: 30px;">
-        <i class="glyphicon glyphicon-user"></i>
-        <p>Mr Jude Emefesi</p>
+     <div class="col-md-4 col-sm-4 col-lg-4 offset-sm-1" style="background-color:green;">
+        <i class="fa fa-user"></i>
+          <h5>Cosmas Anayo</h5>
 
     </div>
 
